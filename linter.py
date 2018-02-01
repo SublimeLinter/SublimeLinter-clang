@@ -1,6 +1,6 @@
 #
 # linter.py
-# Linter for SublimeLinter3, a code checking framework for Sublime Text 3
+# Linter for SublimeLinter4, a code checking framework for Sublime Text 3
 #
 # Written by nirm03
 # Copyright (c) 2013 nirm03
@@ -11,29 +11,10 @@
 """This module exports the Clang plugin class."""
 
 import shlex
-from SublimeLinter.lint import Linter, persist
+from SublimeLinter.lint import Linter, util
 import sublime
 import os
 import string
-
-
-def get_project_folder():
-    proj_file = sublime.active_window().project_file_name()
-    if proj_file:
-        return os.path.dirname(proj_file)
-    # Use current file's folder when no project file is opened.
-    proj_file = sublime.active_window().active_view().file_name()
-    if proj_file:
-        return os.path.dirname(proj_file)
-    return '.'
-
-
-def apply_template(s):
-    mapping = {
-        "project_folder": get_project_folder()
-    }
-    templ = string.Template(s)
-    return templ.safe_substitute(mapping)
 
 
 class Clang(Linter):
@@ -75,17 +56,17 @@ class Clang(Linter):
 
         result = self.base_cmd
 
-        if persist.get_syntax(self.view) in ['c', 'c improved']:
+        if util.get_syntax(self.view) in ['c', 'c improved']:
             result += ' -x c '
-        elif persist.get_syntax(self.view) in ['c++', 'c++11']:
+        elif util.get_syntax(self.view) in ['c++', 'c++11']:
             result += ' -x c++ '
 
         settings = self.get_view_settings()
-        result += apply_template( settings.get('extra_flags', '') )
+        result += settings.get('extra_flags', '')
 
         include_dirs = settings.get('include_dirs', [])
 
         if include_dirs:
-            result += apply_template( ' '.join([' -I ' + shlex.quote(include) for include in include_dirs]) )
+            result += ' '.join([' -I ' + shlex.quote(include) for include in include_dirs])
 
         return result + ' -'
