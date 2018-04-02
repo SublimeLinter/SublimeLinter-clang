@@ -1,26 +1,27 @@
 SublimeLinter-clang
 =========================
 
-This linter plugin for [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter3) provides an interface to [clang](http://clang.llvm.org/). It will be used with files that have the C/C Improved/C++ syntax.
+This linter plugin for [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter3) provides an interface to [clang](http://clang.llvm.org/).
+It will be used with files that have the C/C Improved/C++ syntax.
 
 ## Installation
 SublimeLinter must be installed in order to use this plugin.
 
 Please use [Package Control](https://packagecontrol.io) to install the linter plugin.
 
-Before using this plugin, you must ensure that `clang` is installed on your system.
-
+Before using this plugin, ensure that `clang` is installed on your system.
 - Mac OS X: clang should be already bundled.
 - Linux: clang can be easily installed using most package managers.
 - Windows: the situation is a little trickier, especially with C++. One way to go is to install [mingw with clang](http://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/rubenvb/). Both gcc and clang packages should be installed into the same directory.
 
-Once `clang` is installed, you must ensure it is in your system PATH so that SublimeLinter can find it. The docs cover [troubleshooting PATH configuration](http://sublimelinter.com/en/latest/troubleshooting.html#finding-a-linter-executable)
+Once `clang` is installed, ensure it is in your system PATH so that SublimeLinter can find it.
+The docs cover [troubleshooting PATH configuration](http://sublimelinter.com/en/latest/troubleshooting.html#finding-a-linter-executable)
 
 ## Settings
 - SublimeLinter settings: http://sublimelinter.com/en/latest/settings.html
 - Linter settings: http://sublimelinter.com/en/latest/linter_settings.html
 
-Additional SublimeLinter-clang settings:
+Additional settings for SublimeLinter-clang:
 
 |Setting|Description|
 |:------|:----------|
