@@ -14,12 +14,13 @@ Before using this plugin, you must ensure that `clang` is installed on your syst
 - Linux: clang can be easily installed using most package managers.
 - Windows: the situation is a little trickier, especially with C++. One way to go is to install [mingw with clang](http://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/rubenvb/). Both gcc and clang packages should be installed into the same directory.
 
-Once `clang` is installed, you must ensure it is in your system PATH so that SublimeLinter can find it. The docs cover [troubleshooting PATH configuration](http://sublimelinter.readthedocs.io/en/latest/troubleshooting.html#finding-a-linter-executable)
+Once `clang` is installed, you must ensure it is in your system PATH so that SublimeLinter can find it. The docs cover [troubleshooting PATH configuration](http://sublimelinter.com/en/latest/troubleshooting.html#finding-a-linter-executable)
 
 ## Settings
-- SublimeLinter settings: http://sublimelinter.readthedocs.org/en/latest/settings.html
-- Linter settings: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
+- SublimeLinter settings: http://sublimelinter.com/en/latest/settings.html
+- Linter settings: http://sublimelinter.com/en/latest/linter_settings.html
 
+Additional SublimeLinter-clang settings:
 
 |Setting|Description|
 |:------|:----------|
