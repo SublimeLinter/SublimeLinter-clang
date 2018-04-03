@@ -12,9 +12,6 @@
 
 import shlex
 from SublimeLinter.lint import Linter, util
-import sublime
-import os
-import string
 
 
 class Clang(Linter):
@@ -37,7 +34,9 @@ class Clang(Linter):
 
     defaults = {
         'include_dirs': [],
-        'extra_flags': ""
+        'extra_flags': "",
+        'extra_cflags': "",
+        'extra_cxxflags': ""
     }
 
     base_cmd = (
@@ -55,13 +54,13 @@ class Clang(Linter):
         """
 
         result = self.base_cmd
+        settings = self.get_view_settings()
 
         if util.get_syntax(self.view) in ['c', 'c improved']:
-            result += ' -x c '
+            result += ' -x c ' + settings.get('extra_cflags', '') + ' '
         elif util.get_syntax(self.view) in ['c++', 'c++11']:
-            result += ' -x c++ '
+            result += ' -x c++ ' + settings.get('extra_cxxflags', '') + ' '
 
-        settings = self.get_view_settings()
         result += settings.get('extra_flags', '')
 
         include_dirs = settings.get('include_dirs', [])

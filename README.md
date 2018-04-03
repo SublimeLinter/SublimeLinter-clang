@@ -27,18 +27,22 @@ Additional settings for SublimeLinter-clang:
 |:------|:----------|
 |include_dirs|A list of directories to be added to the header search paths (-I is not needed).|
 |extra_flags|A string with extra flags to pass to clang. These should be used carefully, as they may cause linting to fail.|
+|extra_cflags|Extra flags to pass to clang when linting C syntax code.|
+|extra_cxxflags|Extra flags to pass to clang when linting C++ syntax code.|
 
-In project-specific settings, '$project_folder' or '${project_folder}' can be used to specify relative path.
+In project-specific settings, SublimeLinter allows [expansion variables](http://sublimelinter.readthedocs.io/en/latest/settings.html#settings-expansion). For example, in project-specific settings, '${project_path}' can be used to specify a path relative to the project folder.
 ```
 "SublimeLinter":
 {
     "linters":
     {
         "clang": {
-            "extra_flags": "-Wall -I${project_folder}/foo",
+            "extra_cflags": "-std=c99",
+            "extra_cxxflags": "-std=c++11",
+            "extra_flags": "-Wall -I${project_path}/foo",
             "include_dirs": [
-                "${project_folder}/3rdparty/bar/include",
-                "${project_folder}/3rdparty/baz"
+                "${project_path}/3rdparty/bar/include",
+                "${project_path}/3rdparty/baz"
             ]
         }
     }
