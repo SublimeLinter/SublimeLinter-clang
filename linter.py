@@ -10,15 +10,11 @@
 
 """This module exports the Clang plugin class."""
 
-import shlex
 from SublimeLinter.lint import Linter, util
 
 
 class Clang(Linter):
-
     """Provides an interface to clang."""
-
-    executable = 'clang'
 
     regex = (
         r'<stdin>:(?P<line>\d+):'
@@ -33,40 +29,27 @@ class Clang(Linter):
     multiline = True
 
     defaults = {
-        'include_dirs': [],
-        'extra_flags': "",
-        'selector': 'source.c, source.c++'
+        'selector': 'source.c, source.c++',
+        '-Wall': True,
+        '-I +': [],
+        '-x': None
     }
-
-    base_cmd = (
-        'clang -fsyntax-only '
-        '-fno-caret-diagnostics -Wall '
-    )
 
     on_stderr = None
 
     def cmd(self):
-        """
-        Return the command line to execute.
+        """Return the command line to execute."""
 
-        We override this method, so we can add extra flags and include paths
-        based on the 'include_dirs' and 'extra_flags' settings.
-
-        """
-
-        result = self.base_cmd
-
-        if util.get_syntax(self.view) in ['c', 'c improved']:
-            result += ' -x c '
-        elif util.get_syntax(self.view) in ['c++', 'c++11']:
-            result += ' -x c++ '
+        cmd = 'clang -fsyntax-only -fno-caret-diagnostics ${args} -'
 
         settings = self.get_view_settings()
-        result += settings.get('extra_flags', '')
 
-        include_dirs = settings.get('include_dirs', [])
+        # If not set by the user apply magic
+        if settings['x'] is None:
+            syntax = util.get_syntax(self.view)
+            if syntax in ['c', 'c improved']:
+                settings['x'] = 'c'
+            elif syntax in ['c++', 'c++11']:
+                settings['x'] = 'c++'
 
-        if include_dirs:
-            result += ' '.join([' -I ' + shlex.quote(include) for include in include_dirs])
-
-        return result + ' -'
+        return cmd
