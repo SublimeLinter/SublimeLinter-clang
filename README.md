@@ -27,8 +27,6 @@ Additional settings for SublimeLinter-clang:
 |:------|:----------|
 |include_dirs|A list of directories to be added to the header search paths (-I is not needed).|
 |extra_flags|A string with extra flags to pass to clang. These should be used carefully, as they may cause linting to fail.|
-|extra_cflags|Extra flags to pass to clang when linting C syntax code.|
-|extra_cxxflags|Extra flags to pass to clang when linting C++ syntax code.|
 
 In project-specific settings, SublimeLinter allows [expansion variables](http://sublimelinter.readthedocs.io/en/latest/settings.html#settings-expansion). For example, in project-specific settings, '${project_path}' can be used to specify a path relative to the project folder.
 ```
