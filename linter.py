@@ -43,6 +43,8 @@ class Clang(Linter):
         '-fno-caret-diagnostics -Wall '
     )
 
+    on_stderr = None
+
     def cmd(self):
         """
         Return the command line to execute.
