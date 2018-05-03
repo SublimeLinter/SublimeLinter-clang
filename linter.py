@@ -26,7 +26,7 @@ OUTPUT_RE = re.compile(
 )
 
 
-class clangc(Linter):
+class Clang(Linter):
     cmd = 'clang -fsyntax-only -fno-caret-diagnostics ${args} -'
     defaults = {
         'selector': 'source.c',
@@ -39,7 +39,8 @@ class clangc(Linter):
     on_stderr = None
 
 
-class clangcplus(Linter):
+class ClangPlus(Linter):
+    name = 'clang++'
     cmd = 'clang -fsyntax-only -fno-caret-diagnostics ${args} -'
     defaults = {
         'selector': 'source.c++',
