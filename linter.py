@@ -35,7 +35,7 @@ class Clang(Linter):
     defaults = {
         'include_dirs': [],
         'extra_flags': "",
-        'selector': 'source.c, source.c improved, source.c++, source.c++11'
+        'selector': 'source.c, source.c++'
     }
 
     base_cmd = (
