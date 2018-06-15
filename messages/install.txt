@@ -4,4 +4,4 @@ This linter plugin for SublimeLinter provides an interface to clang.
 
 Please read the installation instructions at:
 
-https://github.com/nirm03/SublimeLinter-clang
+https://github.com/SublimeLinter/SublimeLinter-clang
