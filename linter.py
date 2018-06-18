@@ -27,10 +27,10 @@ OUTPUT_RE = re.compile(
 
 
 class Clang(Linter):
-    cmd = 'clang -fsyntax-only -fno-caret-diagnostics ${args} -'
+    cmd = 'clang ${args} -'
     defaults = {
         'selector': 'source.c',
-        '-Wall': True,
+        'args': '-Wall -fsyntax-only -fno-caret-diagnostics',
         '-I +': [],
         '-x': 'c'
     }
@@ -41,10 +41,10 @@ class Clang(Linter):
 
 class ClangPlus(Linter):
     name = 'clang++'
-    cmd = 'clang -fsyntax-only -fno-caret-diagnostics ${args} -'
+    cmd = 'clang ${args} -'
     defaults = {
         'selector': 'source.c++',
-        '-Wall': True,
+        'args': '-Wall -fsyntax-only -fno-caret-diagnostics',
         '-I +': [],
         '-x': 'c++'
     }

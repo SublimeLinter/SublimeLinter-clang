@@ -8,7 +8,8 @@ We revamped the settings, and you probably have to make changes.
   on the command line).
 
 * 'extra_flags' is now 'args' (which is the standard name in the
-  SublimeLinter world).
+  SublimeLinter world). Note that 'args' has the default value
+  '-Wall -fsyntax-only -fno-caret-diagnostics'.
 
 'c' and 'c++' files now have different settings sections.
 
