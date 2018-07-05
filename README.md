@@ -39,6 +39,8 @@ We have two settings sections. 'clang' for c files, and 'clang++' to configure t
 },
 ```
 
+Note: 'args' has the default value '-Wall -fsyntax-only -fno-caret-diagnostics', so make sure to include them when overriding 'args'.
+
 All common settings information can be found here:
 
 - SublimeLinter settings: http://sublimelinter.com/en/latest/settings.html
