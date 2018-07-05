@@ -49,7 +49,6 @@ Additional settings for SublimeLinter-clang:
 |Setting|Description|
 |:------|:----------|
 |I|A list of directories to be added to the header search paths.|
-|Wall|'Wall' is set by default, set this to false to omit it|
 |x|Automatically set depending on the file type.|
 
 SublimeLinter allows [expansion variables](http://sublimelinter.readthedocs.io/en/latest/settings.html#settings-expansion). For example, '${folder}' can be used to specify a path relative to the project folder.
