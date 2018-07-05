@@ -1,0 +1,25 @@
+SublimeLinter-clang 2.0.0
+-------------------------
+
+
+We revamped the settings, and you probably have to make changes.
+
+* If you used 'include_dirs', it is now called 'I' (just like the arg
+  on the command line).
+
+* 'extra_flags' is now 'args' (which is the standard name in the
+  SublimeLinter world). Note that 'args' has the default value
+  '-Wall -fsyntax-only -fno-caret-diagnostics'.
+
+'c' and 'c++' files now have different settings sections.
+
+{
+    "linters": {
+        "clang": {    // <- for c files
+
+        },
+        "clang++": {  // <-  for c++ files
+
+        }
+    }
+}
