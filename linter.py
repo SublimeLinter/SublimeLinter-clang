@@ -32,6 +32,7 @@ class Clang(Linter):
         'selector': 'source.c',
         'args': '-Wall -fsyntax-only -fno-caret-diagnostics',
         '-I +': [],
+        '-isystem +': [],
         '-x': 'c'
     }
     regex = OUTPUT_RE
@@ -46,6 +47,7 @@ class ClangPlus(Linter):
         'selector': 'source.c++',
         'args': '-Wall -fsyntax-only -fno-caret-diagnostics',
         '-I +': [],
+        '-isystem +': [],
         '-x': 'c++'
     }
     regex = OUTPUT_RE
