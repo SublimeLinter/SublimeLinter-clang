@@ -53,3 +53,33 @@ class ClangPlus(Linter):
     regex = OUTPUT_RE
     multiline = True
     on_stderr = None
+
+
+class ClangObjC(Linter):
+    name = 'clang-objc'
+    cmd = 'clang ${args} -'
+    defaults = {
+        'selector': 'source.objc',
+        'args': '-Wall -fsyntax-only -fno-caret-diagnostics -fobjc-arc',
+        '-I +': [],
+        '-isystem +': [],
+        '-x': 'objective-c'
+    }
+    regex = OUTPUT_RE
+    multiline = True
+    on_stderr = None
+
+
+class ClangObjCPlus(Linter):
+    name = 'clang-objc++'
+    cmd = 'clang ${args} -'
+    defaults = {
+        'selector': 'source.objc++',
+        'args': '-Wall -fsyntax-only -fno-caret-diagnostics -fobjc-arc',
+        '-I +': [],
+        '-isystem +': [],
+        '-x': 'objective-c++'
+    }
+    regex = OUTPUT_RE
+    multiline = True
+    on_stderr = None
